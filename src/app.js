@@ -1,51 +1,51 @@
-console.log("App.js is running!");
+class Header extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Indecision</h1>
+        <h2>Put your life in the hands of a computer</h2>
+      </div>
+    );
+  }
+}
 
-const app = {
-  title: "Indecision App",
-  subtitle: "Put your life in the hands of a computer",
-  options: ["One", "Two"]
-};
+class Action extends React.Component {
+  render() {
+    return (
+      <div>
+        <button>What should I do?</button>
+      </div>
+    );
+  }
+}
 
-const template = (
+class Options extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>Options component here</p>
+      </div>
+    );
+  }
+}
+
+class AddOption extends React.Component {
+  render() {
+    return (
+      <div>
+        <form>Here is the form</form>
+      </div>
+    );
+  }
+}
+
+const jsx = (
   <div>
-    <h1>{app.title}</h1>
-    {app.subtitle && <p>{app.subtitle}</p>}
-    {app.options.length > 0 ? "Here are your options:" : "No options"}
-    <ol>
-      <li>Item one</li>
-      <li>Item two</li>
-    </ol>
+    <Header />
+    <Action />
+    <Options />
+    <AddOption />
   </div>
 );
 
-let count = 0;
-const addOne = () => {
-  count++;
-  renderCounterApp();
-};
-
-const minusOne = () => {
-  count--;
-  renderCounterApp();
-};
-
-const reset = () => {
-  count = 0;
-  renderCounterApp();
-};
-
-const appRoot = document.getElementById("app");
-
-const renderCounterApp = () => {
-  const templateTwo = (
-    <div>
-      <h1>Count: {count}</h1>
-      <button onClick={addOne}>+1</button>
-      <button onClick={minusOne}>-1</button>
-      <button onClick={reset}>Reset</button>
-    </div>
-  );
-  ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCounterApp();
+ReactDOM.render(jsx, document.getElementById("app"));
