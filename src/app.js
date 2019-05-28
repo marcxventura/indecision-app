@@ -1,6 +1,17 @@
 // babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 // live-server public
 
+const obj = {
+  name: "Marc",
+  getName() {
+    return this.name;
+  }
+};
+
+const getName = obj.getName.bind(obj);
+
+console.log(getName());
+
 class IndecisionApp extends React.Component {
   render() {
     const title = "Indecision";
@@ -45,8 +56,14 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleRemoveAll = this.handleRemoveAll.bind(this);
+  }
+
   handleRemoveAll() {
-    alert("handleRemoveAll");
+    console.log(this.props.options);
+    // alert("handleRemoveAll");
   }
   render() {
     return (
