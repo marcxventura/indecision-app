@@ -15,3 +15,13 @@ export const canDrink = age => {
     return false;
   }
 };
+
+const isSeniorCitizen = age => {
+  if (age >= 65) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export default isSeniorCitizen;
